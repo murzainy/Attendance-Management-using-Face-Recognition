@@ -168,3 +168,11 @@ def attendance_workbook(class_name):
 
 if __name__ == "__main__":
     pass
+
+
+def gap():
+    return None
+
+
+def date_column():
+    return None

@@ -1,3 +1,14 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello, World!"
+    
+if __name__ == "__main__":
+    app.run(debug=True)
+    
 import os
 import sys
 import subprocess
@@ -19,8 +30,8 @@ from students_list import StudentsList
 from main_file import MainFile
 
 class_codes = ["Marauders"]
-manager_id = "ADMIN"
-manager_pass = "ubuntu"
+manager_id = "zainy"
+manager_pass = "allspice123"
 
 current_class = "Marauders"
 if current_class != "Marauders":
@@ -111,7 +122,7 @@ class SampleApp(tk.Tk):
         classes_file = os.path.join(os.getcwd(), "extras", "classes.xlsx")
         try:
             global class_codes, current_class
-            class_codes = set(["Marauders"])
+            class_codes = {"Marauders"}
             wb = load_workbook(classes_file)
             ws = wb.active
             number_of_classes = ws["A1"].value
@@ -723,7 +734,7 @@ class AddStudentPage(tk.Frame):
         self.bt_exit.place(x=520 * scale_factor, y=485 * scale_factor)
 
     def doWork(self):
-        global current_class
+        global current_class, img_path, frame
 
         students_list_file = os.path.join(
             os.getcwd(), "student's list", f"{current_class}.xlsx"
